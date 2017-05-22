@@ -21,7 +21,9 @@ using namespace std;
 
 MyWindow::MyWindow(int w, int h,const char *name)
  : EZWindow(w,h,name),formes(200),pforme(nullptr)
-{}
+{
+  setDoubleBuffer(true);
+}
 
 MyWindow::~MyWindow()
 {}
