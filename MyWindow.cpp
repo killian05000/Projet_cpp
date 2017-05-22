@@ -106,7 +106,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
            << "7 : met en magenta la forme" << endl
            << "r : crée un rectangle" << endl
            << "e : crée une ellipse" << endl
-           << "s : crée un carré" << endl
+           << "s : crée un carré avec une ancre putain de swag" << endl
            << "c : crée un cercle de la mort qui tue" << endl
 //           << "t : crée un triangle" << endl
            ;
