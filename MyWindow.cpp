@@ -108,7 +108,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
            << "e : crée une ellipse posey mamen" << endl
            << "s : crée un carré avec une ancre putain de swag" << endl
            << "c : crée un cercle de la mort qui tue" << endl
-//           << "t : crée un triangle" << endl
+           << "t : crée un triangle" << endl
            ;
       break;
      case EZKeySym::r: formes.ajouter(new Rectangle(ez_black,getWidth()/2-25,getHeight()/2-25,getWidth()/2+25,getHeight()/2+25)); break;
