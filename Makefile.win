@@ -3,7 +3,7 @@
 # 05/04/2017 - Eric.Remy@univ-amu.fr
 
 # Variables pour Windows, toutes versions
-SHELL    = 
+SHELL    =
 
 ifeq ($(CXX),)
 CXX=g++

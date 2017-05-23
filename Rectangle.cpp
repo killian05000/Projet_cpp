@@ -4,7 +4,7 @@
 Rectangle::Rectangle(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-        //cerr << "Construction par parametre de Rectangle" << endl;
+  cerr << "Construction d'un Rectangle" << endl;
 }
 
 Rectangle::Rectangle(istream &is)
@@ -14,9 +14,7 @@ Rectangle::Rectangle(istream &is)
 }
 
 Rectangle::~Rectangle()
-{
-        //cerr << "Destruction de Rectangle";
-}
+{}
 
 double Rectangle::perimetre() const
 {
