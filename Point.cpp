@@ -5,7 +5,7 @@
 Point::Point(uint _x, uint _y)
 	: x(_x), y(_y)
 {
-	//cerr << "Construction complete de Point";
+	//cerr << "Construction d'un Point";
 }
 
 Point::Point(const Point &orig)
@@ -29,7 +29,7 @@ bool Point::isOver(uint _x, uint _y)
 {
 	uint dx = (x < _x ? _x - x : x - _x);
 	uint dy = (y < _y ? _y - y : y - _y);
-	
+
 	return (dx <= taille && dy <= taille);
 }
 

@@ -14,7 +14,9 @@ Rectangle::Rectangle(istream &is)
 }
 
 Rectangle::~Rectangle()
-{}
+{
+  cerr << "Destruction de Rectangle";
+}
 
 double Rectangle::perimetre() const
 {

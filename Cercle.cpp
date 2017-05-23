@@ -15,7 +15,7 @@ Cercle::Cercle(istream &is)
 
 Cercle::~Cercle()
 {
-    // cerr << "Destruction de Cercle" << endl;
+  cerr << "Destruction de Cercle" << endl;
 }
 
 double Cercle::perimetre() const

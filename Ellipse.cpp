@@ -15,7 +15,7 @@ Ellipse::Ellipse(istream &is)
 
 Ellipse::~Ellipse()
 {
-        //cerr << "Destruction de Ellipse";
+  cerr << "Destruction de Ellipse";
 }
 
 double Ellipse::perimetre() const

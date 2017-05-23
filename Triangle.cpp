@@ -15,7 +15,7 @@ Triangle::Triangle(istream &is)
 
 Triangle::~Triangle()
 {
-        //cerr << "Destruction de Triangle";
+  cerr << "Destruction de Triangle";
 }
 
 double Triangle::perimetre() const

@@ -15,7 +15,7 @@ Carre::Carre(istream &is)
 
 Carre::~Carre()
 {
-    // cerr << "Destruction de Carre" << endl;
+  cerr << "Destruction de Carre" << endl;
 }
 
 double Carre::perimetre() const
