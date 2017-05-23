@@ -4,7 +4,7 @@
 Triangle::Triangle(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-        //cerr << "Construction par parametre de Triangle" << endl;
+  cerr << "Construction d'un Triangle" << endl;
 }
 
 Triangle::Triangle(istream &is)

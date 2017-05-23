@@ -11,8 +11,6 @@ using namespace std;
 #include "Formes.hpp"
 
 #include "Point.hpp"   // Uniquement pour le constructeur qui peuple la fenêtre
-//#include "Ellipse.hpp" // avec quelques formes.
-//#include "Cercle.hpp"
 #include "Rectangle.hpp"
 #include "Carre.hpp"
 #include "Cercle.hpp"
@@ -96,13 +94,13 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
            << "C : charge la liste des formes depuis le disque" << endl
 //           << "+ : augmente l'épaisseur"    << endl
 //           << "- : diminue l'épaisseur"     << endl
-           << "0 : met en noir la forme"    << endl
-           << "1 : met en gris la forme"    << endl
+           << "0 : met en noir ténébreux la forme"    << endl
+           << "1 : met en gris clair la forme"    << endl
            << "2 : met en rouge la forme"   << endl
-           << "3 : met en vert la forme"    << endl
-           << "4 : met en bleu la forme"    << endl
-           << "5 : met en jaune la forme"   << endl
-           << "6 : met en cyan la forme"    << endl
+           << "3 : met en vert trop fluo la forme"    << endl
+           << "4 : met en bleu des famille la forme"    << endl
+           << "5 : met en jaune qui se voit pas la forme"   << endl
+           << "6 : met en cyan trop brillantla forme"    << endl
            << "7 : met en magenta la forme" << endl
            << "r : crée un rectangle" << endl
            << "e : crée une ellipse posey mamen" << endl
@@ -113,8 +111,8 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
       break;
      case EZKeySym::r: formes.ajouter(new Rectangle(ez_black,getWidth()/2-25,getHeight()/2-25,getWidth()/2+25,getHeight()/2+25)); break;
      case EZKeySym::e: formes.ajouter(new Ellipse(ez_black,getWidth()/2-25,getHeight()/2-15,50,30)); break;
-     case EZKeySym::s: formes.ajouter(new Carre(ez_black,getWidth()/2-25,getHeight()/2-25,50)); break;
-     case EZKeySym::c: formes.ajouter(new Cercle(ez_black,getWidth()/2-25,getHeight()/2-25,25)); break;
+     case EZKeySym::c: formes.ajouter(new Carre(ez_black,getWidth()/2-25,getHeight()/2-25,50)); break;
+     case EZKeySym::s: formes.ajouter(new Cercle(ez_black,getWidth()/2-25,getHeight()/2-25,25)); break;
      case EZKeySym::t: formes.ajouter(new Triangle(ez_black,getWidth()/2-25,getHeight()/2-25,getWidth()/2+25,getHeight()/2+25)); break;
      default:
       break;

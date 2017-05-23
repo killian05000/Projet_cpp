@@ -5,7 +5,7 @@
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y)
 {
-	cerr << "Construction complete de Forme";
+	//cerr << "Construction complete de Forme";
 }
 
 Forme::Forme (const Forme &orig)
