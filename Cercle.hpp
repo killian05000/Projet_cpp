@@ -15,7 +15,7 @@ class Cercle : public Forme {
     Cercle(istream &is);
     ~Cercle();
     virtual void dessiner(EZWindow &w, bool isActive = false) const;
-
+    inline uint getRadius() const {return radius;}
     inline uint getSide() const {return side;}
     inline void setSide (uint _side) { side = _side;}
     double perimetre() const override;

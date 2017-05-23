@@ -4,7 +4,7 @@
 Carre::Carre(ulong color, uint x, uint y, uint _side)
  : Forme(color, x, y), side(_side)
 {
-    cerr << "Construction d'un Carre" << endl;
+    cerr << "Construction d'un Carre " << perimetre() << endl;
 }
 
 Carre::Carre(istream &is)

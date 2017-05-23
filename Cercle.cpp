@@ -4,7 +4,7 @@
 Cercle::Cercle(ulong color, uint x, uint y, uint _side)
  : Forme(color, x, y), side(_side), radius(_side/2)
 {
-  cerr << "Construction d'un Cercle" << perimetre() << endl;
+  cerr << "Construction d'un Cercle " << perimetre() << endl;
 }
 
 Cercle::Cercle(istream &is)

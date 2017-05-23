@@ -10,7 +10,7 @@ class Ellipse : public Forme {
 		void ecrire (ostream &os) const override;
 
 	public :
-		Ellipse(ulong color, uint x, uint y, uint width, uint height);
+		Ellipse(ulong color, uint x, uint y, uint height, uint width);
 		Ellipse(istream &is);
 		~Ellipse();
 		virtual void dessiner (EZWindow &fenetre, bool isActive = false) const;

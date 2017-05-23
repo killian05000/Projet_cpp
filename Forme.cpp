@@ -22,7 +22,7 @@ Forme::Forme(istream &is)
 
 Forme::~Forme()
 {
-	cerr << "Destruction de Forme";
+	cerr << "Destruction de Forme" << endl;
 }
 
 //Autres formes de constructeurs
