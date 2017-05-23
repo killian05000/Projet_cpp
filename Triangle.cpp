@@ -1,10 +1,11 @@
 #include <iostream>
+#include <cmath>
 #include "Triangle.hpp"
 
 Triangle::Triangle(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-  cerr << "Construction d'un Triangle" << endl;
+  cerr << "Construction d'un Triangle " << perimetre() << endl;
 }
 
 Triangle::Triangle(istream &is)
@@ -15,12 +16,12 @@ Triangle::Triangle(istream &is)
 
 Triangle::~Triangle()
 {
-  cerr << "Destruction de Triangle";
+  cerr << "Destruction de Triangle" << endl;
 }
 
 double Triangle::perimetre() const
 {
-	return (height+width)*2;
+	return (sqrt((height*height)+(width/2)*(width/2))*2+width);
 }
 
 void Triangle::dessiner(EZWindow &w, bool isActive) const
