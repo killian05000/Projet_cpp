@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Ellipse.hpp"
 
 Ellipse::Ellipse(ulong color, uint x, uint y, uint _height, uint _width)
@@ -20,7 +21,7 @@ Ellipse::~Ellipse()
 
 double Ellipse::perimetre() const
 {
-	return (height+width)*2;
+	return (2*3.14159265359*(sqrt((1/2)*((height*height)+(width+width)))));
 }
 
 void Ellipse::dessiner(EZWindow &w, bool isActive) const
