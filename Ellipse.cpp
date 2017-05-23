@@ -22,7 +22,7 @@ Ellipse::~Ellipse()
 
 double Ellipse::perimetre() const
 {
-	return (2*3.14159265359*(sqrt((1/2)*((height*height)+(width*width)))));
+	return (2*3.14159265359*(sqrt((1/2)*((getHeight()*getHeight())+(getWidth()*getWidth())))));
 }
 
 void Ellipse::dessiner(EZWindow &w, bool isActive) const
