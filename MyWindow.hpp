@@ -9,7 +9,6 @@
 class MyWindow : public EZWindow {
     Formes formes;
     Forme  *pforme;
-    bool fill = false;
   public:
     MyWindow(int w, int h,const char *name);
     ~MyWindow();

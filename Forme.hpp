@@ -6,20 +6,23 @@
 #include "Point.hpp"
 
 class Forme {
-	
+
 	private :
 		ulong color;
 		Point anchor;
 		bool selected;
+		bool fill = false;
 		std::ofstream log;
-	public :
 
+	public :
 		Forme (ulong color, uint x, uint y);
 		Forme (const Forme &orig);
 		Forme (istream &is);
 		virtual ~Forme();
 		inline ulong getColor() const {return color;}
 		inline void setColor(unsigned long _Color) {color= _Color;}
+		inline bool getFill() const {return fill;}
+		inline void setFill(bool _fill) {fill = _fill;}
 		inline const Point &getAnchor() const {return anchor;}
 		void setAnchor(Point p);
 		bool isOver(uint x, uint y);

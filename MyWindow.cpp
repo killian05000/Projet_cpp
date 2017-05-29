@@ -31,12 +31,16 @@ void MyWindow::expose()
     formes.dessiner(*this);
     if(pforme!=nullptr)
     {
-	if (fill)
-	{
-	    pforme->dessiner(*this,true);
-	} else {
-	    pforme->dessiner(*this,false);
-	}
+    	if (pforme->getFill()==true)
+      {
+        pforme->dessiner(*this,true);
+        cerr << " Etape 1";
+      }
+      else
+      {
+        pforme->dessiner(*this,false);
+        cerr << " Etape 2";
+      }
     }
     setColor(ez_black);
     drawText(EZAlign::TL,3,3,"h : affiche l'aide sur la console");
@@ -44,8 +48,9 @@ void MyWindow::expose()
 
 void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 {
+  cerr << " BOUTON PRESSED";
     if(button==1)
-	pforme = formes.isOver(mouse_x,mouse_y);
+	     pforme = formes.isOver(mouse_x,mouse_y);
 }
 
 // Deplacement de la souris :
@@ -53,16 +58,17 @@ void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 {
     Point p(mouse_x, mouse_y);
     if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
-    pforme->setAnchor(p); // on la bouge.
+      pforme->setAnchor(p); // on la bouge.
     sendExpose(); // Force le rafraichissement du contenu de la fenetre
 }
 
 void MyWindow::buttonRelease(int mouse_x,int mouse_y,int button)
 {
-    Point p(mouse_x, mouse_y);
-    if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
-	pforme->setAnchor(p);
-    sendExpose(); // Force le rafraichissement du contenu de la fenetre
+  cerr << " BOUTON REALEASE";
+  Point p(mouse_x, mouse_y);
+  if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
+    pforme->setAnchor(p);
+  sendExpose(); // Force le rafraichissement du contenu de la fenetre
 }
 
 void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee ou relachee
@@ -97,13 +103,17 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 	}
 	case EZKeySym::F:
 	{
-	    if (fill)
+	    if (pforme->getFill()==true)
 	    {
 		//pforme->infotime(pforme->log, " - Déremplissage de la forme sélectionner.");
-		fill = false;
-	    } else {
+		    pforme->setFill(false);
+        cerr << " F PRESSED GETFILL TRUE";
+	    }
+      else
+      {
 		//pforme->infotime(pforme->log, " - Remplissage de la forme sélectionné.");
-		fill = true;
+		    pforme->setFill(true);
+        cerr << " F PRESSED GETFILL FALSE";
 	    }
 	    break;
 	}
