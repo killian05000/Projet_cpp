@@ -9,7 +9,7 @@ class Formes {
 		const size_t maxformes;
 		size_t nbformes;
 		Forme **formes;
-	
+
 	public :
 		Formes(size_t taille = 200);
 		~Formes();

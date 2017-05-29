@@ -1,5 +1,2 @@
-3
-Rectangle 0 200 271 425 275
-Rectangle 0 661 267 425 275
-Triangle 65535 448 373 425 275
+0
 Sauvegarde des formes dans le fichier 'Formes.txt'.

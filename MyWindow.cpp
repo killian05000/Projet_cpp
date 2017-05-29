@@ -29,19 +29,6 @@ MyWindow::~MyWindow()
 void MyWindow::expose()
 {
     formes.dessiner(*this);
-    if(pforme!=nullptr)
-    {
-    	if (pforme->getFill()==true)
-      {
-        pforme->dessiner(*this,true);
-        cerr << " Etape 1";
-      }
-      else
-      {
-        pforme->dessiner(*this,false);
-        cerr << " Etape 2";
-      }
-    }
     setColor(ez_black);
     drawText(EZAlign::TL,3,3,"h : affiche l'aide sur la console");
 }
