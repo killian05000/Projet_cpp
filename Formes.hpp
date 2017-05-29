@@ -1,7 +1,7 @@
 #ifndef FORMES_HPP
 #define FORMES_HPP
 
-#include "Point.hpp"
+//#include "Point.hpp"
 #include "Forme.hpp"
 
 class Formes {
@@ -19,7 +19,6 @@ class Formes {
 		friend ostream &operator<< (ostream &os, const Formes &f);
 		void sauver(ostream &os) const;
 		void charger(istream &is);
-
 };
 
 #endif

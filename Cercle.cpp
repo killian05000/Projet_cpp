@@ -26,10 +26,13 @@ double Cercle::perimetre() const
 void Cercle::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
-    w.drawCircle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
+    if (isActive)
+	w.fillCircle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
+    else
+	w.drawCircle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
 }
 
 void Cercle::ecrire(ostream &os) const
 {
-    os << side;
+    os << "Cercle " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << side;
 }

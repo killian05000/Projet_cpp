@@ -1,6 +1,4 @@
-#include <iostream>
 #include "Point.hpp"
-//#include "EZWindow.h"
 
 Point::Point(uint _x, uint _y)
 	: x(_x), y(_y)

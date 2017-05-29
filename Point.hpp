@@ -20,8 +20,8 @@ class Point {
 		Point (const Point &org);
 		Point (istream &is);
 		~Point();
-		inline uint getx() const {return x;};
-		inline uint gety() const {return y;};
+		inline uint getx() const {return x;}
+		inline uint gety() const {return y;}
 		void setxy (uint x, uint y);
 		bool isOver (uint _x, uint _y);
 		void dessiner (EZWindow &w, bool isActive = false) const;

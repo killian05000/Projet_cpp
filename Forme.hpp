@@ -1,6 +1,8 @@
 #ifndef FORME_HPP
 #define FORME_HPP
 
+#include <ctime>
+#include <fstream>
 #include "Point.hpp"
 
 class Forme {
@@ -9,8 +11,9 @@ class Forme {
 		ulong color;
 		Point anchor;
 		bool selected;
-	
+		std::ofstream log;
 	public :
+
 		Forme (ulong color, uint x, uint y);
 		Forme (const Forme &orig);
 		Forme (istream &is);
@@ -25,6 +28,8 @@ class Forme {
 		friend ostream &operator<<(ostream &os, const Forme &forme);
 		virtual void ecrire(ostream &os) const = 0;
 		static Forme* charger(istream &is);
+		static void infotime(ostream &os, string message = "");
+		//inline ofstream getlog() const {return log("Session.log");}
 };
 
 #endif

@@ -20,16 +20,19 @@ Rectangle::~Rectangle()
 
 double Rectangle::perimetre() const
 {
-	return (height+width)*2;
+	return ((height+width)*2);
 }
 
 void Rectangle::dessiner(EZWindow &w, bool isActive) const
 {
 	Forme::dessiner(w);
-	w.drawRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
+	if (isActive)
+	    w.fillRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
+	else
+	    w.drawRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
 }
 
 void Rectangle::ecrire(ostream &os) const
 {
-	os << height << " " << width;
+	os << "Rectangle " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << height << " " << width;
 }

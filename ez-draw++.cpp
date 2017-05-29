@@ -57,12 +57,20 @@
 
 #ifdef EZ_BASE_XLIB
 
+
 #include <sys/time.h>
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xresource.h>
 #include <X11/keysym.h>
 #include <X11/extensions/Xdbe.h>
+
+//Macos
+//#include </opt/X11/include/X11/Xlib.h>
+//#include </opt/X11/include/X11/Xutil.h>
+//#include </opt/X11/include/X11/Xresource.h>
+//#include </opt/X11/include/X11/keysym.h>
+//#include </opt/X11/include/X11/extensions/Xdbe.h>
 
 #elif defined EZ_BASE_WIN32
 

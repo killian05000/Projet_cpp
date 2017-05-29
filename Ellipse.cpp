@@ -27,10 +27,13 @@ double Ellipse::perimetre() const
 void Ellipse::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
-    w.drawCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
+    if (isActive)
+	w.fillCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
+    else
+	w.drawCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
 }
 
 void Ellipse::ecrire(ostream &os) const
 {
-	os << height << " " << width;
+	os << "Ellipse " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << height << " " << width;
 }
