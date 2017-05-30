@@ -11,7 +11,9 @@ Ellipse::Ellipse(ulong color, uint x, uint y, uint _height, uint _width)
 Ellipse::Ellipse(istream &is)
  : Forme(is), height(0), width(0)
 {
-    is >> height >> width;
+    bool fillsave = false;
+    is >> height >> width >> fillsave;
+    setFill(fillsave);
 }
 
 Ellipse::~Ellipse()

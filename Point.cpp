@@ -15,7 +15,7 @@ Point::Point(const Point &orig)
 Point::Point(istream &is)
 	: x(0), y(0)
 {
-	is >> x >> y;
+    is >> x >> y;
 }
 
 Point::~Point()

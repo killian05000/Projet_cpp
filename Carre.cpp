@@ -10,7 +10,9 @@ Carre::Carre(ulong color, uint x, uint y, uint _side)
 Carre::Carre(istream &is)
  : Forme(is), side(0)
 {
-    is >> side;
+    bool fillsave = false;
+    is >> side >> fillsave;
+    Forme::setFill(fillsave);
 }
 
 Carre::~Carre()

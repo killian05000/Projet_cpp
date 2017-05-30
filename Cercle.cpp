@@ -10,7 +10,9 @@ Cercle::Cercle(ulong color, uint x, uint y, uint _side)
 Cercle::Cercle(istream &is)
  : Forme(is), side(0)
 {
-    is >> side;
+    bool fillsave = false;
+    is >> side >> fillsave;
+    setFill(fillsave);
 }
 
 Cercle::~Cercle()

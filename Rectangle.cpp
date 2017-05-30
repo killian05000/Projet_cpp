@@ -10,7 +10,9 @@ Rectangle::Rectangle(ulong color, uint x, uint y, uint _height, uint _width)
 Rectangle::Rectangle(istream &is)
  : Forme(is), height(0), width(0)
 {
-	is >> height >> width;
+    bool fillsave = false;
+    is >> height >> width >> fillsave;
+    setFill(fillsave);
 }
 
 Rectangle::~Rectangle()
