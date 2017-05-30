@@ -1,2 +1,3 @@
-0
-Sauvegarde des formes dans le fichier 'Formes.txt'.
+2
+Triangle 16711680 452 461 425 275
+Carre 0 258 134 50

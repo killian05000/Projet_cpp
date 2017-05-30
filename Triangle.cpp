@@ -28,9 +28,9 @@ void Triangle::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
     if (isActive)
-	w.fillTriangle((Forme::getAnchor().getx()-width/2), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width/2), Forme::getAnchor().gety(), Forme::getAnchor().getx(), Forme::getAnchor().gety()-height);
+	     w.fillTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()+height), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height));
     else
-	w.drawTriangle((Forme::getAnchor().getx()-width/2), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width/2), Forme::getAnchor().gety(), Forme::getAnchor().getx(), Forme::getAnchor().gety()-height);
+	     w.drawTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()+height), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height));
 }
 
 void Triangle::ecrire(ostream &os) const

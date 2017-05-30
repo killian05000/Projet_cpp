@@ -35,7 +35,6 @@ void MyWindow::expose()
 
 void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 {
-  cerr << " BOUTON PRESSED";
     if(button==1)
 	     pforme = formes.isOver(mouse_x,mouse_y);
 }
@@ -51,7 +50,6 @@ void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 
 void MyWindow::buttonRelease(int mouse_x,int mouse_y,int button)
 {
-  cerr << " BOUTON REALEASE";
   Point p(mouse_x, mouse_y);
   if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
     pforme->setAnchor(p);
@@ -94,13 +92,11 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 	    {
 		//pforme->infotime(pforme->log, " - Déremplissage de la forme sélectionner.");
 		    pforme->setFill(false);
-        cerr << " F PRESSED GETFILL TRUE";
 	    }
       else
       {
 		//pforme->infotime(pforme->log, " - Remplissage de la forme sélectionné.");
 		    pforme->setFill(true);
-        cerr << " F PRESSED GETFILL FALSE";
 	    }
 	    break;
 	}
@@ -186,31 +182,31 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 	case EZKeySym::r:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Rectangle.");
-	    formes.ajouter(new Rectangle(ez_black,getWidth()/2-25,getHeight()/2-25,getWidth()/2+25,getHeight()/2+25));
+	    formes.ajouter(new Rectangle(ez_black,getWidth()/2,getHeight()/2,getWidth()/4,getHeight()/4));
 	    break;
 	}
 	case EZKeySym::e:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'une Ellipse.");
-	    formes.ajouter(new Ellipse(ez_black,getWidth()/2-25,getHeight()/2-15,50,30));
+	    formes.ajouter(new Ellipse(ez_black,getWidth()/2,getHeight()/2,50,30));
 	    break;
 	}
 	case EZKeySym::c:
 	{
-	    //pforme->infotime(pforme->log, " - Ajout d'un Carré.");
-	    formes.ajouter(new Carre(ez_black,getWidth()/2-25,getHeight()/2-25,50));
+	    //pforme->infotime(pforme->log, " - Ajout d'un Carré.");// MyWindow.hpp
+	    formes.ajouter(new Carre(ez_black,getWidth()/2,getHeight()/2,50));
 	    break;
 	}
 	case EZKeySym::s:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Cercle.");
-	    formes.ajouter(new Cercle(ez_black,getWidth()/2-25,getHeight()/2-25,50));
+	    formes.ajouter(new Cercle(ez_black,getWidth()/2,getHeight()/2,50));
 	    break;
 	}
 	case EZKeySym::t:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Triangle.");
-	    formes.ajouter(new Triangle(ez_black,getWidth()/2-25,getHeight()/2-25,getWidth()/2+25,getHeight()/2+25));
+	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,getWidth()/4,getHeight()/4));
 	    break;
 	}
 	default:
