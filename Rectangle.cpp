@@ -29,9 +29,10 @@ void Rectangle::dessiner(EZWindow &w, bool isActive) const
 {
 	Forme::dessiner(w);
 	if (isActive)
-	    w.fillRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
+	    //w.fillRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
+      w.fillRectangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
 	else
-	    w.drawRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
+	    w.drawRectangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
 }
 
 void Rectangle::ecrire(ostream &os) const

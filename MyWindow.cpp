@@ -182,25 +182,25 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 	case EZKeySym::r:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Rectangle.");
-	    formes.ajouter(new Rectangle(ez_black,getWidth()/2,getHeight()/2,getWidth()/4,getHeight()/4));
+	    formes.ajouter(new Rectangle(ez_black,getWidth()/2.46,getHeight()/4,250,150));
 	    break;
 	}
 	case EZKeySym::e:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'une Ellipse.");
-	    formes.ajouter(new Ellipse(ez_black,getWidth()/2,getHeight()/2,50,30));
+	    formes.ajouter(new Ellipse(ez_black,getWidth()/2.13,getHeight()/2.2,100,50));
 	    break;
 	}
 	case EZKeySym::c:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Carré.");// MyWindow.hpp
-	    formes.ajouter(new Carre(ez_black,getWidth()/2,getHeight()/2,50));
+	    formes.ajouter(new Carre(ez_black,getWidth()/2.28,getHeight()/2.2,100));
 	    break;
 	}
 	case EZKeySym::s:
 	{
 	    //pforme->infotime(pforme->log, " - Ajout d'un Cercle.");
-	    formes.ajouter(new Cercle(ez_black,getWidth()/2,getHeight()/2,50));
+	    formes.ajouter(new Cercle(ez_black,getWidth()/2.28,getHeight()/2.2,50));
 	    break;
 	}
 	case EZKeySym::t:

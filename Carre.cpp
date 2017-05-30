@@ -29,9 +29,10 @@ void Carre::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
     if (isActive)
-	w.fillRectangle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
+	     //w.fillRectangle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
+       w.fillRectangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+side), (Forme::getAnchor().gety()+side));
     else
-	w.drawRectangle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
+	     w.drawRectangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+side), (Forme::getAnchor().gety()+side));
 }
 
 void Carre::ecrire(ostream &os) const

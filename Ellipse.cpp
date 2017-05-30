@@ -30,9 +30,10 @@ void Ellipse::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
     if (isActive)
-	w.fillCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
+	     //w.fillCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
+       w.fillCircle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
     else
-	w.drawCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
+	     w.drawCircle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
 }
 
 void Ellipse::ecrire(ostream &os) const
