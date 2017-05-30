@@ -64,6 +64,7 @@ bool Forme::isOver(uint x, uint y)
 
 void Forme::dessiner(EZWindow &w, bool isActive) const
 {
+		w.setThick(thickness);
     w.setColor(ez_black);
     anchor.dessiner(w, isActive);
     w.setColor(color);

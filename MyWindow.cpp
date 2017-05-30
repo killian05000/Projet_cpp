@@ -100,6 +100,16 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 	    }
 	    break;
 	}
+  case EZKeySym::p:
+  {
+    pforme->increaseThickness();
+    break;
+  }
+  case EZKeySym::m:
+  {
+    pforme->decreaseThickness();
+    break;
+  }
 	case EZKeySym::_0:
 	{
 	    //pforme->infotime(pforme->log, " - Selection de la couleur : 'Noir'.");

@@ -12,6 +12,7 @@ class Forme {
 		Point anchor;
 		bool selected;
 		bool fill = false;
+		uint thickness = 1;
 		std::ofstream log;
 
 	public :
@@ -23,6 +24,9 @@ class Forme {
 		inline void setColor(unsigned long _Color) {color= _Color;}
 		inline bool getFill() const {return fill;}
 		inline void setFill(bool _fill) {fill = _fill;}
+		inline uint getThickness() const {return thickness;}
+		inline void increaseThickness() {thickness++;}
+		inline void decreaseThickness() { if (thickness >1) thickness--;}
 		inline const Point &getAnchor() const {return anchor;}
 		void setAnchor(Point p);
 		bool isOver(uint x, uint y);

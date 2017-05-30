@@ -34,9 +34,15 @@ bool Point::isOver(uint _x, uint _y)
 void Point::dessiner(EZWindow &w, bool isActive) const
 {
 	if (isActive)
+	{
 		w.fillRectangle(x-taille, y-taille, x+taille, y+taille);
+		//w.setThick(1);
+	}
 	else
+	{
 		w.drawRectangle(x-taille, y-taille, x+taille, y+taille);
+		//w.setThick(1);
+	}
 }
 
 ostream &operator<< (ostream &os, const Point &p)
