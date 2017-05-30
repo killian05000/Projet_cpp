@@ -5,16 +5,16 @@
 #include "ez-draw++.hpp"
 
 using namespace std;
- 
+
 typedef unsigned int uint;
 typedef unsigned long int ulong;
- 
+
 class Point {
-	 
+
 	private :
 		static const uint taille = 3;
 		uint x, y;
-	
+
 	public :
 		Point (uint x, uint y);
 		Point (const Point &org);

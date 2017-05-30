@@ -110,6 +110,11 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
     pforme->decreaseThickness();
     break;
   }
+  case EZKeySym::A:
+  {
+    pforme->~Forme();
+    break;
+  }
 	case EZKeySym::_0:
 	{
 	    //pforme->infotime(pforme->log, " - Selection de la couleur : 'Noir'.");
@@ -173,8 +178,9 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier a ete enfoncee
 		 << "S : sauve la liste des formes sur disque" << endl
 		 << "C : charge la liste des formes depuis le disque" << endl
 		 << "F : Active/déactive le remplissage" << endl
-		 << "+ : augmente l'épaisseur" << endl
-		 << "- : diminue l'épaisseur" << endl
+		 << "p : augmente l'épaisseur" << endl
+		 << "m : diminue l'épaisseur" << endl
+     << "A : suprime la forme" << endl
 		 << "0 : met en noir la forme" << endl
 		 << "1 : met en gris la forme" << endl
 		 << "2 : met en rouge la forme" << endl

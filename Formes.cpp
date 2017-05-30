@@ -26,7 +26,9 @@ void Formes::ajouter(Forme *forme)
 void Formes::dessiner(EZWindow &w)
 {
     for (size_t i=0; i < nbformes; ++i)
+    {
 	    formes[i] -> dessiner(w, formes[i]->getFill());
+    }
 }
 
 Forme *Formes::isOver(uint x, uint y)

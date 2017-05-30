@@ -33,6 +33,8 @@ bool Point::isOver(uint _x, uint _y)
 
 void Point::dessiner(EZWindow &w, bool isActive) const
 {
+	// w.drawRectangle(x-10, y-10, x+10, y+10);
+	// w.setThick(1);
 	if (isActive)
 	{
 		w.fillRectangle(x-taille, y-taille, x+taille, y+taille);

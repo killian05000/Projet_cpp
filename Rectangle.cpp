@@ -28,6 +28,7 @@ double Rectangle::perimetre() const
 void Rectangle::dessiner(EZWindow &w, bool isActive) const
 {
 	Forme::dessiner(w);
+  w.setThick(getThickness());
 	if (isActive)
 	    //w.fillRectangle((Forme::getAnchor().getx()-width/2), (Forme::getAnchor().gety()-height/2), (Forme::getAnchor().getx()+width/2), (Forme::getAnchor().gety()+height/2));
       w.fillRectangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
