@@ -42,7 +42,7 @@ void Formes::sauver(ostream &os) const
     os << nbformes << endl;
     for (size_t i=0; i < nbformes; i++)
 	os << *formes[i] << endl;
-    os << "Sauvegarde des formes dans le fichier 'Formes.txt'." << endl;
+    cerr << "Sauvegarde des formes dans le fichier 'Formes.txt'." << endl;
 }
 
 ostream &operator<<(ostream &os, const Formes &f)

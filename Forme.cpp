@@ -9,20 +9,20 @@
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y), log("Session.log")
 {
-    infotime(Forme::log, " - Création d'une fenêtre.");
+    infotime(Forme::log, " - Création d'une forme.");
     //cerr << "Construction complete de Forme";
 }
 
 Forme::Forme (const Forme &orig)
 	: Forme (orig.color, orig.anchor.getx(), orig.anchor.gety())
 {
-	//cerr << "Construction par recopie d'une Forme deja existante";
+    //cerr << "Construction par recopie d'une Forme deja existante";
 }
 
 Forme::Forme(istream &is)
 	: color(0), anchor(0,0)
 {
-	is >> color >> anchor;
+    is >> color >> anchor;
 }
 
 Forme::~Forme()
@@ -86,7 +86,7 @@ Forme *Forme::charger(istream &is)
     is >> type_forme;
     if (type_forme == "Rectangle")
     {
-	//infotime(log, " - Création d'une fenêtre.");
+	//infotime(log, " - Création d'un Rectangle.");
 	return new Rectangle(is);
     }
     else if (type_forme == "Ellipse")
