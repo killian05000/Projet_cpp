@@ -3,7 +3,7 @@
 
 #include "Forme.hpp"
 
-//#define Triangle MyTrigangl
+//#define Triangle MyTriangle
 
 class Triangle : public Forme {
 	private :
