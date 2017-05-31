@@ -10,7 +10,7 @@ class Rectangle : public Forme {
 		uint height;
 		uint width;
 		void ecrire (ostream &os) const override;
-		
+
 	public :
 		Rectangle(ulong color, uint x, uint y, uint width, uint height);
 		Rectangle(istream &is);

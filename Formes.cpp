@@ -9,17 +9,21 @@ Formes::Formes(size_t taille)
 
 Formes::~Formes()
 {
-    //Forme::log;
-    //cerr << "Destruction de Formes" << endl;
+    //Destruction de toute les formes
     for (size_t i=0; i < nbformes; i++)
+    {
 	delete formes[i];
+    }
     delete []formes;
 }
 
 void Formes::ajouter(Forme *forme)
 {
+
     if (nbformes+1 > maxformes)
+    {
 	throw std::runtime_error("Trop de Formes");
+    }
     formes[nbformes++] = forme;
 }
 
@@ -27,7 +31,7 @@ void Formes::dessiner(EZWindow &w)
 {
     for (size_t i=0; i < nbformes; ++i)
     {
-	    formes[i] -> dessiner(w, formes[i]->getFill());
+	formes[i] -> dessiner(w, formes[i]->getFill());
     }
 }
 
@@ -35,16 +39,17 @@ Forme *Formes::isOver(uint x, uint y)
 {
     for (size_t i=0; i < nbformes; ++i)
 	if (formes[i] -> isOver(x, y))
-		return formes[i];
+	    return formes[i];
     return nullptr;
 }
 
 void Formes::sauver(ostream &os) const
 {
+    //Sauvegarde des formes, via la sortie standard, dans le fichier 'Formes.txt'
     os << nbformes << endl;
     for (size_t i=0; i < nbformes; i++)
        os << *formes[i] << " " << formes[i]->getFill() << endl;
-    cerr << "Sauvegarde des formes dans le fichier 'Formes.txt'." << endl;
+
 }
 
 ostream &operator<<(ostream &os, const Formes &f)
@@ -56,7 +61,7 @@ ostream &operator<<(ostream &os, const Formes &f)
 
 void Formes::charger(istream &is)
 {
-    cerr << "Chargement des formes depuis le fichier 'Formes.txt'." << endl;
+    //Chargement des formes, par l'entrée standard, depuis le fichier 'Formes.txt'
     for (size_t i=0; i < nbformes; i++)
 	delete formes[i];
     nbformes=0;

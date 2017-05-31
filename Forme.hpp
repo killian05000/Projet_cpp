@@ -35,8 +35,8 @@ class Forme {
 		friend ostream &operator<<(ostream &os, const Forme &forme);
 		virtual void ecrire(ostream &os) const = 0;
 		static Forme* charger(istream &is);
-		static void infotime(ostream &os, string message = "");
-		//inline ofstream getlog() const {return log("Session.log");}
+		virtual void infotime(string message = "") const;
+		inline void fileclose() { log.close(); }
 };
 
 #endif

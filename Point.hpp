@@ -29,4 +29,5 @@ class Point {
 		friend istream &operator>>(istream &is, Point &p);
 		Point &operator= (const Point &src);
 };
+
 #endif
