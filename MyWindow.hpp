@@ -3,12 +3,12 @@
 #ifndef MYWINDOW_HPP
 #define MYWINDOW_HPP
 
-#include <fstream>
 #include "Formes.hpp"
 
 class MyWindow : public EZWindow {
     Formes formes;
     Forme  *pforme;
+
   public:
     MyWindow(int w, int h,const char *name);
     ~MyWindow();
