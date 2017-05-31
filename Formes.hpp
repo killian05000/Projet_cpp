@@ -1,7 +1,6 @@
 #ifndef FORMES_HPP
 #define FORMES_HPP
 
-//#include "Point.hpp"
 #include "Forme.hpp"
 
 class Formes {
