@@ -4,8 +4,8 @@
 Carre::Carre(ulong color, uint x, uint y, uint _side)
  : Forme(color, x, y), side(_side)
 {
-    Forme::infotime("Construction d'un Carre");
-	cerr << perimetre();
+  Forme::infotime("Construction d'un Carre");
+	cerr << "Construction d'un carre " << perimetre() << endl;
 }
 
 Carre::Carre(istream &is)

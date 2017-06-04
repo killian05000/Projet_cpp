@@ -9,6 +9,7 @@ class MyWindow : public EZWindow {
     Formes formes;
     Forme  *pforme;
     bool souris;
+    bool getxyActive;
     int dx, dy;
 
   public:
@@ -19,6 +20,7 @@ class MyWindow : public EZWindow {
     void buttonPress(int mouse_x,int mouse_y,int button);
     void motionNotify(int mouse_x,int mouse_y,int button);
     void buttonRelease(int mouse_x,int mouse_y,int button);
+    void getxy()const;
 };
 
 #endif

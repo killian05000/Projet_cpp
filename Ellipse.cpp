@@ -5,7 +5,8 @@
 Ellipse::Ellipse(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-    Forme::infotime("Construction d'une Ellipse");
+  Forme::infotime("Construction d'une Ellipse");
+  cerr << "Construction d'une ellipse " << perimetre() << endl;
 }
 
 Ellipse::Ellipse(istream &is)

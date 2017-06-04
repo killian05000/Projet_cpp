@@ -5,6 +5,7 @@ Rectangle::Rectangle(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
     Forme::infotime("Construction d'un Rectangle");
+    cerr << "Construction d'un rectangle " << perimetre() << endl;
 }
 
 Rectangle::Rectangle(istream &is)
