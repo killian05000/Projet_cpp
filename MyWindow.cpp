@@ -13,11 +13,12 @@ using namespace std;
 #include "Cercle.hpp"
 #include "Ellipse.hpp"
 #include "Triangle.hpp"
+#include "Polygone.hpp"
 
 
 //Création d'une fenêtre
 MyWindow::MyWindow(int w, int h,const char *name)
- : EZWindow(w,h,name),formes(200),pforme(nullptr)
+ : EZWindow(w,h,name),formes(200),pforme(nullptr), souris(false), dx(0), dy(0)
 {
     setDoubleBuffer(true);
 }
@@ -34,8 +35,19 @@ void MyWindow::expose()
 
 void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 {
-    if(button==1)
-	     pforme = formes.isOver(mouse_x,mouse_y);
+    if(button==1 and souris)
+	{
+	    setColor(ez_grey);
+	    //Point p(mouse_x, mouse_y);
+	    drawPoint(mouse_x, mouse_y);
+	    dx = mouse_x; dy = mouse_y;
+	    //pforme->setAnchor(p);
+	    //p.setxy(mouse_x, mouse_y);
+	    //setColor(ez_black);
+	} else {
+	    pforme = formes.isOver(mouse_x,mouse_y);
+	}
+
 }
 
 // Déplacement de la souris :
@@ -43,7 +55,19 @@ void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 {
     Point p(mouse_x, mouse_y);
     if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
+    {
 	pforme->setAnchor(p); // on la bouge (l'ancre).
+    }
+
+    if (souris and button == 1)
+    {
+	setColor(ez_grey);
+	drawLine(mouse_x, mouse_y, dx, dy);
+	cerr << dx << "," << dy << endl;
+	//p.setxy(mouse_x, mouse_y);
+	dx = mouse_x; dy = mouse_y;
+    }
+
     sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }
 
@@ -59,6 +83,33 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 {
     switch (keysym)
     {
+	case EZKeySym::h:
+	    //Affichage du menu dans le terminal
+		cout << "q : Quitter" << endl
+			 << "h : Cette aide" << endl
+			 << "E : Ecrire la liste des formes sur la console" << endl
+			 << "S : Sauve la liste des formes sur le disque" << endl
+			 << "C : Charge la liste des formes depuis le disque" << endl
+			 << "F : Active/déactive le remplissage" << endl
+			 << "+ : Augmente l'épaisseur" << endl
+			 << "- : Diminue l'épaisseur" << endl
+			 << "R : Supprime la forme" << endl
+			 << "0 : Met en noir la forme" << endl
+			 << "1 : Met en gris la forme" << endl
+			 << "2 : Met en rouge la forme" << endl
+			 << "3 : Met en vert la forme" << endl
+			 << "4 : Met en bleu la forme" << endl
+			 << "5 : Met en jaune la forme" << endl
+			 << "6 : Met en cyan la forme" << endl
+			 << "7 : Met en magenta la forme" << endl
+			 << "r : Crée un rectangle" << endl
+			 << "e : Crée une ellipse" << endl
+			 << "s : Crée un carré" << endl
+			 << "c : Crée un cercle" << endl
+			 << "t : Crée un triangle" << endl
+			 << "p : Creé un polynome" << endl
+			 << "m : tracer à la souris" << endl;
+	    break;
 	case EZKeySym::Escape: case EZKeySym::q:
 	{
 	    //Arrêt de l'application
@@ -68,6 +119,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 	case EZKeySym::E:
 	{
 	    //Affichage de la liste des formes sur la console
+		cout << "  Nom     Couleur  Ancre x  Ancre y  Hauteur  Largeur" << endl;
 	    cout << formes;
 	    break;
 	}
@@ -164,31 +216,6 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 		pforme->setColor(ez_magenta);
 	    break;
 	}
-	case EZKeySym::h:
-	    //Affichage du menu dans le terminal
-	    cout << "q : Quitter" << endl
-		 << "h : Cette aide" << endl
-		 << "E : Ecrire la liste des formes sur la console" << endl
-		 << "S : Sauve la liste des formes sur le disque" << endl
-		 << "C : Charge la liste des formes depuis le disque" << endl
-		 << "F : Active/déactive le remplissage" << endl
-		 << "p : Augmente l'épaisseur" << endl
-		 << "m : Diminue l'épaisseur" << endl
-		 << "R : Supprime la forme" << endl
-		 << "0 : Met en noir la forme" << endl
-		 << "1 : Met en gris la forme" << endl
-		 << "2 : Met en rouge la forme" << endl
-		 << "3 : Met en vert la forme" << endl
-		 << "4 : Met en bleu la forme" << endl
-		 << "5 : Met en jaune la forme" << endl
-		 << "6 : Met en cyan la forme" << endl
-		 << "7 : Met en magenta la forme" << endl
-		 << "r : Crée un rectangle" << endl
-		 << "e : Crée une ellipse" << endl
-		 << "s : Crée un carré" << endl
-		 << "c : Crée un cercle" << endl
-		 << "t : Crée un triangle" << endl;
-	    break;
 	case EZKeySym::r:
 	{
 	    //Dessinage de Rectangle
@@ -216,9 +243,21 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 	case EZKeySym::t:
 	{
 	    //Dessinage de Triangle
-	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,getWidth()/4,getHeight()/4));
+	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,getWidth()/6,getHeight()/6, getWidth()/4, getHeight()/4));
+		//formes.ajouter(new Triangle(ez_black, 320, 110, 380, 120, 350, 150));
 	    break;
 	}
+	case EZKeySym::p:
+	{
+		//Dessinage de Polygone
+	    formes.ajouter(new Polygone(ez_black, getWidth()/2, getHeight()/3.40, getWidth()/3, getHeight()/3));
+	}
+	case EZKeySym::m:
+		//Dessinage à la main
+	    if (souris)
+			souris = false;
+	    else
+			souris = true;
 	default:
 	    break;
     }

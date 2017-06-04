@@ -8,6 +8,8 @@
 class MyWindow : public EZWindow {
     Formes formes;
     Forme  *pforme;
+    bool souris;
+    int dx, dy;
 
   public:
     MyWindow(int w, int h,const char *name);

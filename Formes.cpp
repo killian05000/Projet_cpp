@@ -21,18 +21,14 @@ void Formes::ajouter(Forme *forme)
 {
 
     if (nbformes+1 > maxformes)
-    {
 	throw std::runtime_error("Trop de Formes");
-    }
     formes[nbformes++] = forme;
 }
 
 void Formes::dessiner(EZWindow &w)
 {
     for (size_t i=0; i < nbformes; ++i)
-    {
 	formes[i] -> dessiner(w, formes[i]->getFill());
-    }
 }
 
 Forme *Formes::isOver(uint x, uint y)
@@ -48,7 +44,7 @@ void Formes::sauver(ostream &os) const
     //Sauvegarde des formes, via la sortie standard, dans le fichier 'Formes.txt'
     os << nbformes << endl;
     for (size_t i=0; i < nbformes; i++)
-       os << *formes[i] << " " << formes[i]->getFill() << endl;
+       os << *formes[i] << "       " << formes[i]->getFill() << endl;
 
 }
 

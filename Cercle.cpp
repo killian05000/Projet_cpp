@@ -4,7 +4,7 @@
 Cercle::Cercle(ulong color, uint x, uint y, uint _side)
  : Forme(color, x, y), side(_side), radius(_side/2)
 {
-  cerr << "Construction d'un Cercle " << perimetre() << endl;
+    Forme::infotime("Construction d'un Cercle");
 }
 
 Cercle::Cercle(istream &is)
@@ -17,7 +17,7 @@ Cercle::Cercle(istream &is)
 
 Cercle::~Cercle()
 {
-  cerr << "Destruction de Cercle" << endl;
+    Forme::infotime("Destruction de Cercle");
 }
 
 double Cercle::perimetre() const
@@ -27,6 +27,7 @@ double Cercle::perimetre() const
 
 void Cercle::dessiner(EZWindow &w, bool isActive) const
 {
+    Forme::infotime("Dessinage du Cercle");
     Forme::dessiner(w);
     if (isActive)
       //w.fillCircle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);
@@ -37,5 +38,6 @@ void Cercle::dessiner(EZWindow &w, bool isActive) const
 
 void Cercle::ecrire(ostream &os) const
 {
-    os << "Cercle " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << side;
+    Forme::infotime("Sauvegarde du Cercle sur la sortie standard ('Formes.txt')");
+	os << "Cercle       " << getColor() << "       " << getAnchor().getx() << "      " << getAnchor().gety() << "      " << side;
 }

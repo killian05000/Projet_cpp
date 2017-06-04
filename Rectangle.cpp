@@ -4,13 +4,13 @@
 Rectangle::Rectangle(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-    Forme::infotime("Construction d'un Rectangle.");
+    Forme::infotime("Construction d'un Rectangle");
 }
 
 Rectangle::Rectangle(istream &is)
  : Forme(is), height(0), width(0)
 {
-    Forme::infotime("Construction d'un Rectangle depuis l'entrée standard ('Formes.txt').");
+    Forme::infotime("Construction d'un Rectangle depuis l'entrée standard ('Formes.txt')");
     bool fillsave = false;
     is >> height >> width >> fillsave;
     setFill(fillsave);
@@ -18,7 +18,7 @@ Rectangle::Rectangle(istream &is)
 
 Rectangle::~Rectangle()
 {
-    Forme::infotime("Destruction de Rectangle.");
+    Forme::infotime("Destruction de Rectangle");
 }
 
 double Rectangle::perimetre() const
@@ -28,6 +28,7 @@ double Rectangle::perimetre() const
 
 void Rectangle::dessiner(EZWindow &w, bool isActive) const
 {
+    Forme::infotime("Dessinage du Rectangle");
     Forme::dessiner(w);
     w.setThick(getThickness());
     if (isActive)
@@ -39,6 +40,6 @@ void Rectangle::dessiner(EZWindow &w, bool isActive) const
 
 void Rectangle::ecrire(ostream &os) const
 {
-    Forme::infotime("Sauvegarde de Rectangle depuis la sortie standard ('Formes.txt').");
-    os << "Rectangle " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << height << " " << width;
+    Forme::infotime("Sauvegarde de Rectangle depuis la sortie standard ('Formes.txt')");
+    os << "Rectangle    " << getColor() << "       " << getAnchor().getx() << "      " << getAnchor().gety() << "      " << height << "      " << width;
 }

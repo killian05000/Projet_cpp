@@ -5,12 +5,13 @@
 Ellipse::Ellipse(ulong color, uint x, uint y, uint _height, uint _width)
  : Forme(color, x, y), height(_height), width(_width)
 {
-  cerr << "Construction d'une Ellipse " << perimetre() << endl;
+    Forme::infotime("Construction d'une Ellipse");
 }
 
 Ellipse::Ellipse(istream &is)
  : Forme(is), height(0), width(0)
 {
+    Forme::infotime("Construction d'une Ellipse depuis l'entrée standard ('Formes.txt')");
     bool fillsave = false;
     is >> height >> width >> fillsave;
     setFill(fillsave);
@@ -18,7 +19,7 @@ Ellipse::Ellipse(istream &is)
 
 Ellipse::~Ellipse()
 {
-  cerr << "Destruction de Ellipse" << endl;
+    Forme::infotime("Destruction de l'Ellipse");
 }
 
 double Ellipse::perimetre() const
@@ -28,6 +29,7 @@ double Ellipse::perimetre() const
 
 void Ellipse::dessiner(EZWindow &w, bool isActive) const
 {
+    Forme::infotime("Dessinage de l'Ellipse");
     Forme::dessiner(w);
     if (isActive)
 	     //w.fillCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
@@ -38,5 +40,6 @@ void Ellipse::dessiner(EZWindow &w, bool isActive) const
 
 void Ellipse::ecrire(ostream &os) const
 {
-	os << "Ellipse " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << height << " " << width;
+    Forme::infotime("Sauvegarde de l'Ellipse sur la sortie standard ('Formes.txt')");
+	os << "Ellipse      " << getColor() << "       " << getAnchor().getx() << "      " << getAnchor().gety() << "      " << height << "      " << width;
 }

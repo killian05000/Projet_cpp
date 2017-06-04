@@ -28,7 +28,6 @@ Forme::Forme(istream &is)
 Forme::~Forme()
 {
     //Destructeur de Forme
-
 }
 
 /* Autres formes de constructeurs
@@ -148,7 +147,7 @@ void Forme::infotime(string message) const
     else
 	log << timeinfo.tm_sec;
 
-    log << " - " << message << endl;
+    log << " - " << message << "." << endl;
 
     log.close();
 }
