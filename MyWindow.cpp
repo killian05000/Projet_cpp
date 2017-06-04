@@ -46,7 +46,14 @@ void MyWindow::getxy()const
   {
     x.str("");
     x << i;
-    drawText(EZAlign::TL,i-5,20, x.str());
+
+    if(i < 100)
+      drawText(EZAlign::TL,i-5,20, x.str());
+    else if (i <1000)
+      drawText(EZAlign::TL,i-8,20, x.str());
+    else
+      drawText(EZAlign::TL,i-11,20, x.str());
+
     drawLine(i,40, i, getHeight());
   }
 }
@@ -277,8 +284,8 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	case EZKeySym::t:
     	{
     	    //Dessinage de Triangle
-    	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,50,100,100,150));
-    		//formes.ajouter(new Triangle(ez_black, 320, 110, 380, 120, 350, 150));
+    	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,100,150,100,150));
+  		    //formes.ajouter(new Triangle(ez_black, 320, 110, 380, 120, 350, 150));
     	    break;
     	}
     	case EZKeySym::m:
@@ -288,8 +295,6 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
       			souris = false;
     	    else
             souris = true;
-          default:
-    	    break;
       }
       case EZKeySym::O:
       {
@@ -297,7 +302,9 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
           getxyActive=false;
         else
           getxyActive=true;
+        break;
       }
+      default:break;
       }
     sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }

@@ -14,7 +14,7 @@ Triangle::Triangle(istream &is)
 {
     Forme::infotime("Construction du Triangle à partir de l'entrée standard ('Formes.txt')");
     bool fillsave = false;
-    is >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> fillsave;
+    is >> x2 >> y2 >> x3 >> y3 >> fillsave;
     setFill(fillsave);
 }
 
@@ -39,14 +39,14 @@ void Triangle::dessiner(EZWindow &w, bool isActive) const
 
 
 	if (isActive)
-		w.fillTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx() - x2 / 2), (Forme::getAnchor().gety() + y2), (Forme::getAnchor().getx() + x3 / 2), (Forme::getAnchor().gety() + y3));
+		w.fillTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-x2/2), (Forme::getAnchor().gety()+y2), (Forme::getAnchor().getx()+x3/2), (Forme::getAnchor().gety()+y3));
 	else
-
-	    w.drawTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-x2/2), (Forme::getAnchor().gety()+y2), (Forme::getAnchor().getx()+x3/2), (Forme::getAnchor().gety()+y3));
+    w.drawTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-x2/2), (Forme::getAnchor().gety()+y2), (Forme::getAnchor().getx()+x3/2), (Forme::getAnchor().gety()+y3));
 }
 
 void Triangle::ecrire(ostream &os) const
 {
     Forme::infotime("Sauvegarde du Triangle sur la sortie standard ('Formes.txt')");
-    os << "Triangle " << getColor() << " " << getx1() << " " << gety1() << " " << getx2() << " " << gety2() << " " << getx3() << " " << gety3();
+    //os << "Triangle " << getColor() << " " << getAnchor().getx1() << " " << getAnchor().gety1() << " " << getAnchor().getx2() << " " << getAnchor().gety2() << " " << getAnchor().getx3() << " " << getAnchor().gety3();
+		os << "Triangle " << getColor() << " " << getAnchor().getx() << " " << getAnchor().gety() << " " << x2 << " " << y2 << " " << x3 << " " << y3;
 }
