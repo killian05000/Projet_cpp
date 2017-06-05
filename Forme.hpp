@@ -25,9 +25,10 @@ class Forme {
 		inline bool getFill() const {return fill;}
 		inline void setFill(bool _fill) {fill = _fill;}
 		inline uint getThickness() const {return thickness;}
-		inline void increaseThickness() {thickness++;}
-		inline void decreaseThickness() { if (thickness >1) thickness--;}
-		inline const Point &getAnchor() const {return anchor;}
+		inline void setThickness(uint _thickness) { thickness = _thickness; }
+		inline void increaseThickness() { if (thickness <5 && !getFill()) thickness++;}
+		inline void decreaseThickness() { if (thickness >1 && !getFill()) thickness--;}
+		inline const Point &getAnchor() const { return anchor; }
 		void setAnchor(Point p);
 		bool isOver(uint x, uint y);
 		virtual void dessiner(EZWindow &fenetre, bool active = false) const;

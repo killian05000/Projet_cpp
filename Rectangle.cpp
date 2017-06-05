@@ -13,7 +13,9 @@ Rectangle::Rectangle(istream &is)
 {
     Forme::infotime("Construction d'un Rectangle depuis l'entrée standard ('Formes.txt')");
     bool fillsave = false;
-    is >> height >> width >> fillsave;
+	uint thicknesssave = 0;
+    is >> height >> width >> fillsave >> thicknesssave;
+	setThickness(thicknesssave);
     setFill(fillsave);
 }
 
@@ -29,7 +31,6 @@ double Rectangle::perimetre() const
 
 void Rectangle::dessiner(EZWindow &w, bool isActive) const
 {
-    Forme::infotime("Dessinage du Rectangle");
     Forme::dessiner(w);
     w.setThick(getThickness());
     if (isActive)

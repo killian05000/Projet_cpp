@@ -12,7 +12,9 @@ Cercle::Cercle(istream &is)
  : Forme(is), side(0)
 {
     bool fillsave = false;
-    is >> side >> fillsave;
+	uint thicknesssave = 0;
+    is >> side >> fillsave >> thicknesssave;
+	setThickness(thicknesssave);
     setFill(fillsave);
 }
 
@@ -30,7 +32,6 @@ double Cercle::perimetre() const
 
 void Cercle::dessiner(EZWindow &w, bool isActive) const
 {
-    Forme::infotime("Dessinage du Cercle");
     Forme::dessiner(w);
     if (isActive)
       //w.fillCircle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);

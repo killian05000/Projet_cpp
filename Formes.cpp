@@ -44,7 +44,7 @@ void Formes::sauver(ostream &os) const
     //Sauvegarde des formes, via la sortie standard, dans le fichier 'Formes.txt'
     os << nbformes << endl;
     for (size_t i=0; i < nbformes; i++)
-       os << *formes[i] << "       " << formes[i]->getFill() << endl;
+       os << *formes[i] << "       " << formes[i]->getFill() << " " << formes[i]->getThickness() << endl;
 
 }
 

@@ -66,6 +66,7 @@ bool Forme::isOver(uint x, uint y)
 
 void Forme::dessiner(EZWindow &w, bool isActive) const
 {
+
     //Permet de déssiner la forme voulu
     w.setColor(ez_red);
     w.setThick(1);
@@ -108,7 +109,7 @@ Forme *Forme::charger(istream &is)
 void Forme::infotime(string message) const
 {
     //Fonction permettant de structurer le fichier log ('Session.log') avec l'heure, la date et un message personnalisé (passé en parametre)
-    std::ofstream log("Session.log", std::ofstream::out);
+    std::ofstream log("Session.log", std::ofstream::app);
 
     if (!log) {	cerr << "Echec lors de l'eriture dans le fichier 'Session.log'."; return; }
 
@@ -120,32 +121,38 @@ void Forme::infotime(string message) const
 
     log << "Le ";
 
-    if (timeinfo.tm_mday < 10)
-	log << "0" << timeinfo.tm_mday << "/";
+	//Date : Jour
+    if(timeinfo.tm_mday < 10)
+		log << "0" << timeinfo.tm_mday << "/";
     else
-	log << timeinfo.tm_mday << "/";
+		log << timeinfo.tm_mday << "/";
 
+	//Date : Mois
     if (timeinfo.tm_mon < 10)
-	log << "0" << timeinfo.tm_mon;
+		log << "0" << timeinfo.tm_mon;
     else
-	log << timeinfo.tm_mon;
+		log << timeinfo.tm_mon;
 
+	//Date : Année
     log << "/" << timeinfo.tm_year+1900 << " à ";
 
+	//Date : Heure
     if (timeinfo.tm_hour < 10)
-	log << "0" + timeinfo.tm_hour << ":";
+		log << "0" + timeinfo.tm_hour << ":";
     else
-	log << timeinfo.tm_hour << ":";
+		log << timeinfo.tm_hour << ":";
 
+	//Date : Minute
     if (timeinfo.tm_min < 10)
-	log << "0" << timeinfo.tm_min << ":";
+		log << "0" << timeinfo.tm_min << ":";
     else
-	log << timeinfo.tm_min << ":";
+		log << timeinfo.tm_min << ":";
 
+	//Date : Seconde
     if (timeinfo.tm_sec < 10)
-	log << "0" << timeinfo.tm_sec;
+		log << "0" << timeinfo.tm_sec;
     else
-	log << timeinfo.tm_sec;
+		log << timeinfo.tm_sec;
 
     log << " - " << message << "." << endl;
 

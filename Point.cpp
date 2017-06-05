@@ -3,13 +3,13 @@
 Point::Point(uint _x, uint _y)
 	: x(_x), y(_y)
 {
-    //cerr << "Construction d'un Point";
+    //Construction d'un Point
 }
 
 Point::Point(const Point &orig)
 	: Point (orig.x, orig.y)
 {
-    //cerr << "Construction par recopie d'un Point existant";
+    //Construction par recopie d'un Point existant
 }
 
 Point::Point(istream &is)
@@ -20,7 +20,7 @@ Point::Point(istream &is)
 
 Point::~Point()
 {
-    //cerr << "Destruction de toutes les constructions";
+    //Destruction de toutes les constructions
 }
 
 bool Point::isOver(uint _x, uint _y)
@@ -37,13 +37,13 @@ void Point::dessiner(EZWindow &w, bool isActive) const
     // w.setThick(1);
     if (isActive)
     {
-	w.fillRectangle(x-taille, y-taille, x+taille, y+taille);
-	//w.setThick(1);
+		w.fillRectangle(x-taille, y-taille, x+taille, y+taille);
+		//w.setThick(1);
     }
     else
     {
-	w.drawRectangle(x-taille, y-taille, x+taille, y+taille);
-	//w.setThick(1);
+		w.drawRectangle(x-taille, y-taille, x+taille, y+taille);
+		//w.setThick(1);
     }
 }
 

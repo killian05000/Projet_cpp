@@ -13,8 +13,10 @@ Carre::Carre(istream &is)
 {
     Forme::infotime("Construction d'un Carré depuis l'entrée standard ('Formes.txt')");
     bool fillsave = false;
-    is >> side >> fillsave;
-    Forme::setFill(fillsave);
+	uint thicknesssave = 0;
+    is >> side >> fillsave >> thicknesssave;
+	setThickness(thicknesssave);
+	setFill(fillsave);
 }
 
 Carre::~Carre()
@@ -29,7 +31,6 @@ double Carre::perimetre() const
 
 void Carre::dessiner(EZWindow &w, bool isActive) const
 {
-    Forme::infotime("Dessinage du Carré");
     Forme::dessiner(w);
     if (isActive)
 	     //w.fillRectangle(Forme::getAnchor().getx()-side, Forme::getAnchor().gety()-side, Forme::getAnchor().getx()+side, Forme::getAnchor().gety()+side);

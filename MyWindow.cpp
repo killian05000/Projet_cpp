@@ -29,42 +29,45 @@ MyWindow::~MyWindow()
 
 void MyWindow::getxy()const
 {
-  stringstream y;
-  stringstream x;
+	stringstream y;
+	stringstream x;
 
-  for (uint i=0; i < getHeight(); i+=50)
-  {
-    if (i>0)
-    {
-      y.str("");
-      y << i;
-      drawText(EZAlign::TL,3,i-5, y.str());
-      drawLine(30,i, getWidth(), i);
-    }
-  }
-  for (uint i=50; i < getWidth(); i+=50)
-  {
-    x.str("");
-    x << i;
+	for (uint i=0; i < getHeight(); i+=50)
+	{
+		if (i>0)
+		{
+			y.str("");
+			y << i;
+			drawText(EZAlign::TL,3,i-5, y.str());
+			drawLine(30,i, getWidth(), i);
+		}
+	}
 
-    if(i < 100)
-      drawText(EZAlign::TL,i-5,20, x.str());
-    else if (i <1000)
-      drawText(EZAlign::TL,i-8,20, x.str());
-    else
-      drawText(EZAlign::TL,i-11,20, x.str());
+	for (uint i=50; i < getWidth(); i+=50)
+	{
+		x.str("");
+		x << i;
 
-    drawLine(i,40, i, getHeight());
-  }
+		if(i < 100)
+			drawText(EZAlign::TL,i-5,20, x.str());
+		else if (i <1000)
+			drawText(EZAlign::TL,i-8,20, x.str());
+		else
+			drawText(EZAlign::TL,i-11,20, x.str());
+
+		drawLine(i,40, i, getHeight());
+	}
+
 }
 
 void MyWindow::expose()
 {
-  if (getxyActive)
-  {
-    setColor(ez_grey);
-    getxy(); // marche pas à modifier dans le hpp
-  }
+	if (getxyActive)
+	{
+		setColor(ez_grey);
+		getxy(); // marche pas à modifier dans le hpp
+	}
+
     formes.dessiner(*this);
     setColor(ez_black);
     drawText(EZAlign::TL,3,3,"h : affiche l'aide sur la console");
@@ -81,9 +84,9 @@ void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 	    //pforme->setAnchor(p);
 	    //p.setxy(mouse_x, mouse_y);
 	    //setColor(ez_black);
-	} else {
-	    pforme = formes.isOver(mouse_x,mouse_y);
 	}
+	else
+	    pforme = formes.isOver(mouse_x,mouse_y);
 
 }
 
@@ -92,20 +95,18 @@ void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 {
     Point p(mouse_x, mouse_y);
     if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
-    {
-	pforme->setAnchor(p); // on la bouge (l'ancre).
-    }
+		pforme->setAnchor(p); // on la bouge (l'ancre).
 
     if (souris and button == 1)
     {
-	setColor(ez_grey);
-	drawLine(mouse_x, mouse_y, dx, dy);
-	cerr << dx << "," << dy << endl;
-	//p.setxy(mouse_x, mouse_y);
-	dx = mouse_x; dy = mouse_y;
+		setColor(ez_grey);
+		drawLine(mouse_x, mouse_y, dx, dy);
+		cerr << dx << "," << dy << endl;
+		//p.setxy(mouse_x, mouse_y);
+		dx = mouse_x; dy = mouse_y;
     }
 
-    sendExpose(); // Force le rafraichissement du contenu de la fenêtre
+	sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }
 
 void MyWindow::buttonRelease(int mouse_x,int mouse_y,int button)
@@ -128,7 +129,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     			 << "S : Sauve la liste des formes sur le disque" << endl
     			 << "C : Charge la liste des formes depuis le disque" << endl
     			 << "F : Active/déactive le remplissage" << endl
-           //getxy()
+				 //getxy()
     			 << "+ : Augmente l'épaisseur" << endl
     			 << "- : Diminue l'épaisseur" << endl
     			 //<< "R : Supprime la forme" << endl
@@ -289,22 +290,25 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	    break;
     	}
     	case EZKeySym::m:
-      {
+		{
     		//Dessinage à la main
     	    if (souris)
       			souris = false;
     	    else
-            souris = true;
-      }
-      case EZKeySym::O:
-      {
-        if (getxyActive)
-          getxyActive=false;
-        else
-          getxyActive=true;
-        break;
-      }
-      default:break;
+				souris = true;
+			break;
+		 }
+		 case EZKeySym::O:
+		 {
+			 if (getxyActive)
+				 getxyActive=false;
+			 else
+				 getxyActive=true;
+		  
+			 break;
+		  }
+      default:
+		  break;
       }
     sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }

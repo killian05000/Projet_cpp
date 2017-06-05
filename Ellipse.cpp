@@ -14,7 +14,9 @@ Ellipse::Ellipse(istream &is)
 {
     Forme::infotime("Construction d'une Ellipse depuis l'entrée standard ('Formes.txt')");
     bool fillsave = false;
-    is >> height >> width >> fillsave;
+	uint thicknesssave = 0;
+    is >> height >> width >> fillsave >> thicknesssave;
+	setThickness(thicknesssave);
     setFill(fillsave);
 }
 
@@ -30,7 +32,6 @@ double Ellipse::perimetre() const
 
 void Ellipse::dessiner(EZWindow &w, bool isActive) const
 {
-    Forme::infotime("Dessinage de l'Ellipse");
     Forme::dessiner(w);
     if (isActive)
 	     //w.fillCircle(Forme::getAnchor().getx()-width, Forme::getAnchor().gety()-height, (Forme::getAnchor().getx()+width), (Forme::getAnchor().gety()+height));
