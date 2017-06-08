@@ -7,8 +7,21 @@
 #include "Triangle.hpp"
 
 Forme::Forme (ulong _color, uint _x, uint _y)
-	: color(_color), anchor(_x, _y), log("Session.log")
+	: color(_color), anchor(_x, _y),anchor2(30, 30), anchor3(50, 50), log("Session.log")
 {
+    //Création d'une Forme
+}
+
+Forme::Forme (ulong _color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3, uint _y3)
+	: color(_color), anchor(_x1, _y1), anchor2((_x1-_x2), (_y1+_y2)), anchor3((_x1+_x3), (_y1+_y3)), log("Session.log")
+{
+	cerr << "POUR UNE FORME" << endl;
+	cerr << _x1 << endl;
+	cerr << _y1 << endl;
+	cerr << _x2 << endl;
+	cerr << _y2 << endl;
+	cerr << _x3 << endl;
+	cerr << _y3 << endl;
     //Création d'une Forme
 }
 
@@ -19,7 +32,7 @@ Forme::Forme (const Forme &orig)
 }
 
 Forme::Forme(istream &is)
-	: color(0), anchor(0,0)
+	: color(0), anchor(0,0), anchor2(0,0), anchor3(0,0)
 {
     //Construction, par l'entrée standard, d'une Forme depuis le fichier 'Formes.txt'
     is >> color >> anchor;
@@ -58,10 +71,34 @@ void Forme::setAnchor(Point p)
     anchor = p;
 }
 
+void Forme::setAnchor2(Point p)
+{
+    //Déclaration d'une ancre comme un point
+    anchor2 = p;
+}
+
+void Forme::setAnchor3(Point p)
+{
+    //Déclaration d'une ancre comme un point
+    anchor3 = p;
+}
+
 bool Forme::isOver(uint x, uint y)
 {
     //permet de vérifier si l'utilisateur clique sur l'ancre ou pas
     return anchor.isOver(x,y);
+}
+
+bool Forme::isOverTP2(uint x, uint y)
+{
+    //permet de vérifier si l'utilisateur clique sur l'ancre ou pas
+    return anchor2.isOver(x,y);
+}
+
+bool Forme::isOverTP3(uint x, uint y)
+{
+    //permet de vérifier si l'utilisateur clique sur l'ancre ou pas
+    return anchor3.isOver(x,y);
 }
 
 void Forme::dessiner(EZWindow &w, bool isActive) const
@@ -71,6 +108,8 @@ void Forme::dessiner(EZWindow &w, bool isActive) const
     w.setColor(ez_red);
     w.setThick(1);
     anchor.dessiner(w, isActive);
+		anchor2.dessiner(w, isActive);
+		anchor3.dessiner(w, isActive);
     w.setThick(thickness);
     w.setColor(color);
 }

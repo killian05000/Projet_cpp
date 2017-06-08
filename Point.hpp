@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ez-draw++.hpp"
 
+
 using namespace std;
 
 typedef unsigned int uint;
@@ -24,6 +25,8 @@ class Point {
 		inline uint gety() const {return y;}
 		void setxy (uint x, uint y);
 		bool isOver (uint _x, uint _y);
+		bool isOverTP2 (uint _x, uint _y);
+		bool isOverTP3 (uint _x, uint _y);
 		void dessiner (EZWindow &w, bool isActive = false) const;
 		friend ostream &operator<<(ostream &os, const Point &p);
 		friend istream &operator>>(istream &is, Point &p);

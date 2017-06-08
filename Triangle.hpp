@@ -7,7 +7,12 @@
 
 class Triangle : public Forme {
 	private :
-		uint x1, y1, x2, y2, x3, y3;
+		uint x1; // change rien ici
+		uint y1;
+		uint x2; // enfait le x du point 2 c'est x1-x2
+		uint y2; // enfait le y du point 2 c'est y1-y2
+		uint x3;
+		uint y3; // y1 y est ajouté
 		void ecrire (ostream &os) const override;
 
 	public :

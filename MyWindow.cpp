@@ -85,8 +85,15 @@ void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 	    //p.setxy(mouse_x, mouse_y);
 	    //setColor(ez_black);
 	}
+  // else if (pforme->getNomForme()=="triangle")
+  // {
+  //   pforme = formes.isOver(mouse_x,mouse_y);
+  //   // pforme = formes.isOverTP2(mouse_x,mouse_y);
+  //   //pforme = formes.isOverTP3(mouse_x,mouse_y);
+  // }
 	else
 	    pforme = formes.isOver(mouse_x,mouse_y);
+
 
 }
 
@@ -94,8 +101,18 @@ void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 {
     Point p(mouse_x, mouse_y);
-    if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
-		pforme->setAnchor(p); // on la bouge (l'ancre).
+
+    if(button == 1 && pforme != nullptr)
+    { // Si on clique sur l'ancre d'une forme
+		  pforme->setAnchor(p); // on la bouge (l'ancre).
+        if (pforme->getNomForme()=="triangle")
+        {
+          Point p2((mouse_x-pforme->getx2()), (mouse_y+pforme->gety2()));
+          Point p3((mouse_x+pforme->getx3()), (mouse_y+pforme->gety3()));
+          pforme->setAnchor2(p2);
+          pforme->setAnchor3(p3);
+        }
+    }
 
     if (souris and button == 1)
     {
@@ -189,13 +206,19 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	}
     	case EZKeySym::plus:
     	{
+        if (pforme != nullptr)
+        {
     	    pforme->increaseThickness(); // Augmenter l'épaisseur de la forme sélectionnée
-    	    break;
+        }
+  	    break;
     	}
     	case EZKeySym::minus:
     	{
+        if (pforme != nullptr)
+        {
     	    pforme->decreaseThickness(); // Diminuer l'épaisseur de la forme sélectionnée
-    	    break;
+        }
+  	    break;
     	}
     	// case EZKeySym::R:
     	// {
@@ -285,7 +308,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	case EZKeySym::t:
     	{
     	    //Dessinage de Triangle
-    	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,100,150,100,150));
+    	    formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/3.35,200,250,200,250));
   		    //formes.ajouter(new Triangle(ez_black, 320, 110, 380, 120, 350, 150));
     	    break;
     	}
@@ -304,7 +327,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 				 getxyActive=false;
 			 else
 				 getxyActive=true;
-		  
+
 			 break;
 		  }
       default:
