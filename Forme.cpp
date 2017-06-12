@@ -9,7 +9,7 @@
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y),anchor2(30, 30), anchor3(50, 50), log("Session.log")
 {
-    //Création d'une Forme
+  //Création d'une Forme
 }
 
 Forme::Forme (ulong _color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3, uint _y3)
@@ -40,6 +40,7 @@ Forme::Forme(istream &is)
 
 Forme::~Forme()
 {
+		anchor.~Point();
     //Destructeur de Forme
 }
 

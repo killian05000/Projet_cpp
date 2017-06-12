@@ -21,13 +21,13 @@ MyWindow::MyWindow(int w, int h,const char *name)
  : EZWindow(w,h,name),formes(200),pforme(nullptr), souris(false), dx(0), dy(0)
 {
     setDoubleBuffer(true);
-    getxyActive=false;
+    quadriActive=false;
 }
 
 MyWindow::~MyWindow()
 {}
 
-void MyWindow::getxy()const
+void MyWindow::quadrillage()const
 {
 	stringstream y;
 	stringstream x;
@@ -62,10 +62,10 @@ void MyWindow::getxy()const
 
 void MyWindow::expose()
 {
-	if (getxyActive)
+	if (quadriActive)
 	{
 		setColor(ez_grey);
-		getxy(); // marche pas à modifier dans le hpp
+		quadrillage();
 	}
 
     formes.dessiner(*this);
@@ -146,7 +146,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     			 << "S : Sauve la liste des formes sur le disque" << endl
     			 << "C : Charge la liste des formes depuis le disque" << endl
     			 << "F : Active/déactive le remplissage" << endl
-				 //getxy()
+		       << "O : Affiche le quadrillage" << endl
     			 << "+ : Augmente l'épaisseur" << endl
     			 << "- : Diminue l'épaisseur" << endl
     			 //<< "R : Supprime la forme" << endl
@@ -220,11 +220,12 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
         }
   	    break;
     	}
-    	// case EZKeySym::R:
-    	// {
-    	//     pforme->~Forme(); // Destruction de la forme sélectionnée
-    	//     break;
-    	// }
+    	case EZKeySym::R:
+    	{
+          //pforme->setVisible(0)
+          clear();
+    	    break;
+    	}
     	case EZKeySym::_0:
     	{
     	    //Sélection de la couleur : 'Noir'
@@ -323,10 +324,10 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
 		 }
 		 case EZKeySym::O:
 		 {
-			 if (getxyActive)
-				 getxyActive=false;
+			 if (quadriActive)
+				 quadriActive=false;
 			 else
-				 getxyActive=true;
+				 quadriActive=true;
 
 			 break;
 		  }
