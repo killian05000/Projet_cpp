@@ -7,12 +7,14 @@
 
 class Forme {
 
-	private :
+	protected :
 		ulong color;
 		Point anchor;
-		Point anchor2;
-		Point anchor3;
 		bool selected;
+		bool anchor1Focused;
+		bool anchor2Focused;
+		bool anchor3Focused;
+		bool isBoucing = false;
 		bool fill = false;
 		uint thickness = 1;
 		string nomForme;
@@ -42,6 +44,15 @@ class Forme {
 		inline void setNomForme(string  _nomForme) {nomForme = _nomForme;}
 		inline const Point &getAnchor() const { return anchor; }
 
+		inline bool getAnchor1Focused() const {return anchor1Focused;}
+		inline void setAnchor1Focused(bool _anchor1Focused) {anchor1Focused = _anchor1Focused;}
+
+		inline bool getAnchor2Focused() const {return anchor2Focused;}
+		inline void setAnchor2Focused(bool _anchor2Focused) {anchor2Focused = _anchor2Focused;}
+
+		inline bool getAnchor3Focused() const {return anchor3Focused;}
+		inline void setAnchor3Focused(bool _anchor3Focused) {anchor3Focused = _anchor3Focused;}
+
 		virtual inline uint getx1() const { return x1; }
 		virtual inline uint getx2() const { return x2; }
 		virtual inline uint getx3() const { return x3; }
@@ -49,12 +60,10 @@ class Forme {
 		virtual inline uint gety2() const { return y2; }
 		virtual inline uint gety3() const { return y3; }
 
-		void setAnchor(Point p);
-		void setAnchor2(Point p);
-		void setAnchor3(Point p);
-		bool isOver(uint x, uint y);
-		bool isOverTP2( uint x, uint y);
-		bool isOverTP3( uint x, uint y);
+		void bouncing(int x, int y, int h);
+		inline void setIsBoucing(bool _isBoucing) {isBoucing = _isBoucing;}
+		virtual void setAnchor(uint x, uint y);
+		virtual bool isOver(uint x, uint y);
 		virtual void dessiner(EZWindow &fenetre, bool active = false) const;
 		virtual double perimetre () const = 0;
 		friend ostream &operator<<(ostream &os, const Forme &forme);

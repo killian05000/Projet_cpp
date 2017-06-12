@@ -14,8 +14,6 @@ class Formes {
 		~Formes();
 		void ajouter (Forme *forme);
 		Forme* isOver (uint x, uint y);
-		Forme* isOverTP2 (uint x, uint y);
-		Forme* isOverTP3 (uint x, uint y);
 		void dessiner (EZWindow &fenetre);
 		friend ostream &operator<< (ostream &os, const Formes &f);
 		void sauver(ostream &os) const;

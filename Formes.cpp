@@ -39,22 +39,6 @@ Forme *Formes::isOver(uint x, uint y)
     return nullptr;
 }
 
-Forme *Formes::isOverTP2(uint x, uint y)
-{
-    for (size_t i=0; i < nbformes; ++i)
-	if (formes[i] -> isOverTP2(x, y))
-	    return formes[i];
-    return nullptr;
-}
-
-Forme *Formes::isOverTP3(uint x, uint y)
-{
-    for (size_t i=0; i < nbformes; ++i)
-	if (formes[i] -> isOverTP3(x, y))
-	    return formes[i];
-    return nullptr;
-}
-
 void Formes::sauver(ostream &os) const
 {
     //Sauvegarde des formes, via la sortie standard, dans le fichier 'Formes.txt'
