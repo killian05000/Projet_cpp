@@ -27,7 +27,7 @@ MyWindow::MyWindow(int w, int h,const char *name)
 MyWindow::~MyWindow()
 {}
 
-void MyWindow::quadrillage()const
+void MyWindow::quadrillage()const // dessine un quadrillage pour permettree un agencement des formes facile
 {
 	stringstream y;
 	stringstream x;
@@ -57,7 +57,6 @@ void MyWindow::quadrillage()const
 
 		drawLine(i,40, i, getHeight());
 	}
-
 }
 
 void MyWindow::expose()
@@ -67,7 +66,6 @@ void MyWindow::expose()
 		setColor(ez_grey);
 		quadrillage();
 	}
-
     formes.dessiner(*this);
     setColor(ez_black);
     drawText(EZAlign::TL,3,3,"h : affiche l'aide sur la console");
@@ -75,31 +73,12 @@ void MyWindow::expose()
 
 void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 {
-  //   if(button==1 and souris)
-	// {
-	//     setColor(ez_grey);
-	//     //Point p(mouse_x, mouse_y);
-	//     drawPoint(mouse_x, mouse_y);
-	//     dx = mouse_x; dy = mouse_y;
-	//     //pforme->setAnchor(p);
-	//     //p.setxy(mouse_x, mouse_y);
-	//     //setColor(ez_black);
-	// }
-  // else if (pforme->getNomForme()=="triangle")
-  // {
-  //   pforme = formes.isOver(mouse_x,mouse_y);
-  //   // pforme = formes.isOverTP2(mouse_x,mouse_y);
-  //   // pforme = formes.isOverTP3(mouse_x,mouse_y);
-  // }
-	// else
-  // {
-	//     pforme = formes.isOver(mouse_x,mouse_y);
-  //     if (quadriActive)
-  //     {
-  //       pforme->setIsBoucing(true);
-  //       //pforme->bouncing(mouse_x, mouse_y, getHeight());
-  //     }
-  // }
+    if(button==1 and souris)
+	{
+	    setColor(ez_grey);
+	    drawPoint(mouse_x, mouse_y);
+	    dx = mouse_x; dy = mouse_y;
+	}
 
   if (button==1)
     pforme = formes.isOver(mouse_x,mouse_y);
@@ -109,29 +88,25 @@ void MyWindow::buttonPress(int mouse_x,int mouse_y,int button)
 // Déplacement de la souris :
 void MyWindow::motionNotify(int mouse_x,int mouse_y,int button)
 {
-    //Point p(mouse_x, mouse_y);
-
-    if(button == 1 && pforme != nullptr)
+    if(button == 1 && pforme != nullptr && !souris)
     { // Si on clique sur l'ancre d'une forme
 		  pforme->setAnchor(mouse_x, mouse_y); // on la bouge (l'ancre).
     }
 
-    // if (souris and button == 1)
-    // {
-		// setColor(ez_grey);
-		// drawLine(mouse_x, mouse_y, dx, dy);
-		// cerr << dx << "," << dy << endl;
-		// p.setxy(mouse_x, mouse_y);
-		// dx = mouse_x; dy = mouse_y;
-    // }
-
-	sendExpose(); // Force le rafraichissement du contenu de la fenêtre
+    if(button==1 and souris)
+  	{
+      drawLine(mouse_x, mouse_y, dx, dy);
+      dx = mouse_x; dy = mouse_y;
+    }
+    if (!souris)
+	   sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }
+
 
 void MyWindow::buttonRelease(int mouse_x,int mouse_y,int button)
 {
     //Point p(mouse_x, mouse_y);
-    if(button == 1 && pforme != nullptr) // Si on clique sur l'ancre d'une forme
+    if(button == 1 && pforme != nullptr && !souris) // Si on clique sur l'ancre d'une forme
      pforme->setAnchor(mouse_x,mouse_y);
     sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }
@@ -248,28 +223,41 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	}
       case EZKeySym::M:
       {
-        if (colorChanging)
-          colorChanging=false;
-        else
-          colorChanging=true;
+        if (pforme != nullptr)
+        {
+          if (colorChanging)
+            colorChanging=false;
+          else
+            colorChanging=true;
 
-        startTimer(500);
+          startTimer(500);
+        }
         break;
       }
       case EZKeySym::P:
       {
-        if (flashActive)
-          flashActive=false;
-        else
-          flashActive=true;
+        if (pforme != nullptr)
+        {
+          if (flashActive)
+            flashActive=false;
+          else
+            flashActive=true;
 
-        startTimer(500);
+          startTimer(500);
+        }
         break;
+      }
+      case EZKeySym::I:
+      {
+        cout << "veuillez saisir le chemin d'accés :" << endl;
+        cin >> imagePath;
+        //EZImage(imagePath);
+
       }
     	case EZKeySym::E:
     	{
     	    //Affichage de la liste des formes sur la console
-    		cout << "  Nom     Couleur  Ancre x  Ancre y  Hauteur  Largeur" << endl;
+    		    cout << "  Nom     Couleur  Ancre x  Ancre y  Hauteur  Largeur" << endl;
     	    cout << formes;
     	    break;
     	}
@@ -412,7 +400,7 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
     	    if (souris)
       			souris = false;
     	    else
-				souris = true;
+			      souris = true;
 			break;
 		 }
 		 case EZKeySym::O:

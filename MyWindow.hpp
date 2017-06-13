@@ -10,7 +10,7 @@ class MyWindow : public EZWindow {
     Forme  *pforme;
     bool souris;
     bool quadriActive;
-    //string imagePath;
+    string imagePath;
     bool colorChanging=false;
     int numColor=0;
     bool flashActive=false;
@@ -26,6 +26,7 @@ class MyWindow : public EZWindow {
     void motionNotify(int mouse_x,int mouse_y,int button);
     void buttonRelease(int mouse_x,int mouse_y,int button);
     void quadrillage()const;
+    void funcSouris(int mouse_x, int mouse_y, int button);
 };
 
 #endif
