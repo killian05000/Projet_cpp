@@ -5,6 +5,7 @@
 #include "Carre.hpp"
 #include "Ellipse.hpp"
 #include "Triangle.hpp"
+#include "Polygone.hpp"
 
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y), log("Session.log")
@@ -15,13 +16,6 @@ Forme::Forme (ulong _color, uint _x, uint _y)
 Forme::Forme (ulong _color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3, uint _y3)
 	: color(_color), anchor(_x1, _y1), log("Session.log")
 {
-	cerr << "POUR UNE FORME" << endl;
-	cerr << _x1 << endl;
-	cerr << _y1 << endl;
-	cerr << _x2 << endl;
-	cerr << _y2 << endl;
-	cerr << _x3 << endl;
-	cerr << _y3 << endl;
     //Création d'une Forme
 }
 

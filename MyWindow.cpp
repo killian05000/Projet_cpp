@@ -13,6 +13,7 @@ using namespace std;
 #include "Cercle.hpp"
 #include "Ellipse.hpp"
 #include "Triangle.hpp"
+#include "Polygone.hpp"
 #include <sstream>
 
 
@@ -394,6 +395,14 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
   		    //formes.ajouter(new Triangle(ez_black, 320, 110, 380, 120, 350, 150));
     	    break;
     	}
+	case EZKeySym::p:
+	    uint i;
+	    cerr << "Veuillez saisir le nombre de sommet de votre polygone (3 min - 10 max) : ";
+	    cin >> i;
+	    if (i==3)
+		formes.ajouter(new Triangle(ez_black,getWidth()/2,getHeight()/4,150,175,0,350));
+	    else if (i==4)
+		formes.ajouter(new Polygone(ez_black,getWidth()/2,getHeight()/4,100, 300, 25, 50, 400, 20));
     	case EZKeySym::m:
 		{
     		//Dessinage à la main

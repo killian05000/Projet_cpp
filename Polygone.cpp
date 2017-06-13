@@ -3,10 +3,10 @@
 #include "Polygone.hpp"
 
 Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3, uint _y3, uint _x4, uint _y4)
- : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4)
+ : Forme(color, _x1, _y1), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4)
 {
     Forme::infotime("Construction d'un Polygone à 4 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 4 sommets" << perimetre() << endl;
      setNomForme("Polygone4"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -14,7 +14,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
  : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5)
 {
     Forme::infotime("Construction d'un Polygone à 5 sommets"); //log
-    cerr << "Construction d'un Polygone " << perimetre() << endl;
+    cerr << "Construction d'un Polygone à 5 sommets" << perimetre() << endl;
     setNomForme("Polygone5"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -22,7 +22,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
     : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5), x6(_x6), y6(_y6)
 {
     Forme::infotime("Construction d'un Polygone à 6 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 6 sommets" << perimetre() << endl;
      setNomForme("Polygone6"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -30,7 +30,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
     : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5), x6(_x6), y6(_y6), x7(_x7), y7(_y7)
 {
     Forme::infotime("Construction d'un Polygone à 7 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 7 sommets" << perimetre() << endl;
      setNomForme("Polygone7"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -38,7 +38,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
     : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5), x6(_x6), y6(_y6), x7(_x7), y7(_y7), x8(_x8), y8(_y8)
 {
     Forme::infotime("Construction d'un Polygone à 8 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 8 sommets" << perimetre() << endl;
      setNomForme("Polygone8"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -46,7 +46,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
     : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5), x6(_x6), y6(_y6), x7(_x7), y7(_y7), x8(_x8), y8(_y8), x9(_x9), y9(_y9)
 {
     Forme::infotime("Construction d'un Polygone à 9 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 9 sommets" << perimetre() << endl;
      setNomForme("Polygone9"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -54,7 +54,7 @@ Polygone::Polygone(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
     : Forme(color, _x1, _y1, _x2, _y2, _x3, _y3), x1(_x1), y1(_y1), x2(_x2), y2(_y2), x3(_x3), y3(_y3), x4(_x4), y4(_y4), x5(_x5), y5(_y5), x6(_x6), y6(_y6), x7(_x7), y7(_y7), x8(_x8), y8(_y8), x9(_x9), y9(_y9), x10(_x10), y10(_y10)
 {
     Forme::infotime("Construction d'un Polygone à 10 sommets"); //log
-     cerr << "Construction d'un Polygone " << perimetre() << endl;
+     cerr << "Construction d'un Polygone à 10 sommets" << perimetre() << endl;
      setNomForme("Polygone10"); //Nom de la forme pour le constructeur is dans Forme
 }
 
@@ -96,15 +96,31 @@ void Polygone::dessiner(EZWindow &w, bool isActive) const
 {
     Forme::dessiner(w);
     if (isActive) //Si Remplissage
-	switch (getNomForme())
-	    case "Polygone4" :
-	    {
-		w.drawLine( );
-		w.drawLine( );
-		w.drawLine( );
-		w.drawLine( );
+	if (getNomForme() == "Polygone4")
+	{
+	    cerr << "Polygone4";
+		w.drawLine(x1,y1,x2,y2);
+		w.drawLine(x2,y2,x3,y3);
+		w.drawLine(x3,y3,x4,y4);
+		w.drawLine(x4,y4,x1,y1);
+	}
+	else
+	{
+	    cerr << " ";
+	}
     else
-	w.drawTriangle(Forme::getAnchor().getx(), Forme::getAnchor().gety(), (Forme::getAnchor().getx()-x2), (Forme::getAnchor().gety()+y2), (Forme::getAnchor().getx()+x3), (Forme::getAnchor().gety()+y3)); //Dessin sans remplissage
+	if (getNomForme() == "Polygone4")
+	{
+	    cerr << "Polygone4";
+		w.drawLine(x1,y1,x2,y2);
+		w.drawLine(x2,y2,x3,y3);
+		w.drawLine(x3,y3,x4,y4);
+		w.drawLine(x4,y4,x1,y1);
+	}
+	else
+	{
+	    cerr << " ";
+	}
 }
 
 void Polygone::ecrire(ostream &os) const

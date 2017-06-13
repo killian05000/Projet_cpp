@@ -80,7 +80,7 @@ public:
 		return 0;
 	}
 
-	uint getSommet() const { /*return tampon.c_str();*/ }
+	//uint getSommet() const { /*return tampon.c_str();*/ }
 
 	void close() { EZDraw::quit(); }
 };
