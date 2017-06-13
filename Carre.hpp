@@ -13,7 +13,7 @@ class Carre : public Forme {
           Carre(ulong color, uint x, uint y, uint side);
           Carre(istream &is);
           ~Carre();
-	  virtual void dessiner(EZWindow &w, bool isActive = false) const;
+	         virtual void dessiner(EZWindow &w, bool isActive = false) const;
 
           inline uint getSide() const {return side;}
           inline void setSide (uint _side) { side = _side;}

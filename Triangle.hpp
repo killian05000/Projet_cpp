@@ -14,12 +14,15 @@ class Triangle : public Forme {
 		uint x3;
 		uint y3; // y1 y est ajouté
 		void ecrire (ostream &os) const override;
+		Point anchor2, anchor3;
 
 	public :
 		Triangle(ulong color, uint x1, uint y1, uint x2, uint y2, uint x3, uint y3);
 		Triangle(istream &is);
 		~Triangle();
 		virtual void dessiner (EZWindow &fenetre, bool isActive = false) const;
+		void setAnchor(uint x, uint y) override;
+		bool isOver(uint x, uint y) override;
 		inline uint getx1() const { return x1; }
 		inline uint getx2() const { return x2; }
 		inline uint getx3() const { return x3; }

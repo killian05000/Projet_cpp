@@ -23,7 +23,13 @@ Point::~Point()
     //Destruction de toutes les constructions
 }
 
-bool Point::isOver(uint _x, uint _y)
+void Point::setxy(uint _x, uint _y)
+{
+	x=_x;
+	y=_y;
+}
+
+bool Point::isOver(uint _x, uint _y) const
 {
     uint dx = (x < _x ? _x - x : x - _x);
     uint dy = (y < _y ? _y - y : y - _y);
