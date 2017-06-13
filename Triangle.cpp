@@ -7,14 +7,6 @@ Triangle::Triangle(ulong color, uint _x1, uint _y1, uint _x2, uint _y2, uint _x3
 {
 	Forme::infotime("Construction d'un Triangle");
 	cerr << "Construction d'un triangle " << perimetre() << endl;
-	cerr << "POUR UN TRIANGLE" << endl;
-	cerr << x1 << endl;
-	cerr << y1 << endl;
-	cerr << x2 << endl;
-	cerr << y2 << endl;
-	cerr << x3 << endl;
-	cerr << y3 << endl;
-
 
 	setNomForme("triangle");
 }
@@ -93,14 +85,12 @@ void Triangle::setAnchor(uint x, uint y)
 			y1=y;
 			anchor2.setxy((x1-x2),(y1+y2));
 			anchor3.setxy((x1+x3),(y1+y3));
-			std::cerr << "je suis dans le 1" << '\n';
 		}
 		if (anchor2Focused)
 		{
 			x2=x;
 			y2=y-y1;
 			anchor2.setxy((x1-x2),(y1+y2));
-		  std::cerr << "Je suis dans le 2" << '\n';
 			anchor3Focused = false;
 		}
 		if (anchor3Focused)

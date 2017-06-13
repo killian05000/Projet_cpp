@@ -10,6 +10,8 @@
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y), log("Session.log")
 {
+	colorChanging=false;
+	flashActive=false;
   //Création d'une Forme
 }
 

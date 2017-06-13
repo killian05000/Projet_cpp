@@ -39,6 +39,9 @@ class Polygone : public Forme {
 	~Polygone();
 	virtual void dessiner (EZWindow &fenetre, bool isActive = false) const;
 	double perimetre () const override;
+
+  void setAnchor(uint x, uint y) override;
+  bool isOver(uint x, uint y) override;
 };
 
 

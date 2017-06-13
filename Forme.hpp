@@ -25,6 +25,8 @@ class Forme {
 		uint y2; // enfait le y du point 2 c'est y1-y2
 		uint x3;
 		uint y3; // y1 y est ajouté
+		bool colorChanging;
+		bool flashActive;
 
 	public :
 		Forme (ulong color, uint x, uint y);
@@ -32,6 +34,10 @@ class Forme {
 		Forme (const Forme &orig);
 		Forme (istream &is);
 		virtual ~Forme();
+		inline bool getColorChanging() const {return colorChanging;}
+		inline void setColorChanging(bool _colorC) {colorChanging = _colorC;}
+		inline bool getFlashActive() const {return flashActive;}
+		inline void setFlashActive(bool _flashA) {flashActive = _flashA;}
 		inline ulong getColor() const {return color;}
 		inline void setColor(unsigned long _Color) {color= _Color;}
 		inline bool getFill() const {return fill;}

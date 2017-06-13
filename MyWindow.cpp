@@ -108,13 +108,15 @@ void MyWindow::buttonRelease(int mouse_x,int mouse_y,int button)
 {
     //Point p(mouse_x, mouse_y);
     if(button == 1 && pforme != nullptr && !souris) // Si on clique sur l'ancre d'une forme
-     pforme->setAnchor(mouse_x,mouse_y);
+    {
+      pforme->setAnchor(mouse_x,mouse_y);
+    }
     sendExpose(); // Force le rafraichissement du contenu de la fenêtre
 }
 
 void MyWindow::timerNotify()
 {
-  if (colorChanging)
+  if (pforme->getColorChanging()==true)
   {
     if (numColor==0)
     {
@@ -160,11 +162,13 @@ void MyWindow::timerNotify()
     if (numColor>7)
       numColor=0;
     expose();
-    if (colorChanging)
+    if (pforme->getColorChanging()==true)
       startTimer(500);
+    else
+      pforme->setColor(ez_black);
   }
 
-  if (flashActive)
+  if (pforme->getFlashActive()==true)
   {
     // if (pforme->getFill()==true)
     //   pforme->setFill(false); //Déremplissage de la forme sélectionnée
@@ -177,7 +181,7 @@ void MyWindow::timerNotify()
       pforme->setFill(true); //Remplissage de la forme sélectionnée
 
     sendExpose();
-    if (flashActive)
+    if (pforme->getFlashActive()==true)
       startTimer(500);
   }
 }
@@ -226,10 +230,10 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
       {
         if (pforme != nullptr)
         {
-          if (colorChanging)
-            colorChanging=false;
+          if (pforme->getColorChanging()==true)
+            pforme->setColorChanging(false);
           else
-            colorChanging=true;
+            pforme->setColorChanging(true);
 
           startTimer(500);
         }
@@ -239,10 +243,10 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
       {
         if (pforme != nullptr)
         {
-          if (flashActive)
-            flashActive=false;
+          if (pforme->getFlashActive())
+            pforme->setFlashActive(false);
           else
-            flashActive=true;
+            pforme->setFlashActive(true);
 
           startTimer(500);
         }
@@ -303,11 +307,12 @@ void MyWindow::keyPress(EZKeySym keysym) // Une touche du clavier à été enfon
         }
   	    break;
     	}
-    	// case EZKeySym::R:
-    	// {
-      //     preBouncing(mouse_x, mouse_y, getHeight());
-    	//     break;
-    	// }
+    	case EZKeySym::R:
+    	{
+          //preBouncing(mouse_x, mouse_y, getHeight());
+          clear();
+    	    break;
+    	}
     	case EZKeySym::_0:
     	{
     	    //Sélection de la couleur : 'Noir'

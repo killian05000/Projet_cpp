@@ -11,9 +11,9 @@ class MyWindow : public EZWindow {
     bool souris;
     bool quadriActive;
     string imagePath;
-    bool colorChanging=false;
+    //bool colorChanging=false;
     int numColor=0;
-    bool flashActive=false;
+    //bool flashActive=false;
     int dx, dy;
 
   public:
