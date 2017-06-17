@@ -5,7 +5,6 @@
 #include "Carre.hpp"
 #include "Ellipse.hpp"
 #include "Triangle.hpp"
-#include "Polygone.hpp"
 
 Forme::Forme (ulong _color, uint _x, uint _y)
 	: color(_color), anchor(_x, _y), log("Session.log")
