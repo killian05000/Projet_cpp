@@ -88,10 +88,13 @@ void Triangle::setAnchor(uint x, uint y)
 		}
 		if (anchor2Focused)
 		{
-			x2=x;
-			y2=y-y1;
-			anchor2.setxy((x1-x2),(y1+y2));
-			anchor3Focused = false;
+			//x2=x;
+			//y2=y-y1;
+			//anchor2.setxy((x1-x2),(y1+y2));
+			//anchor3Focused = false;
+			x2= Forme::getAnchor().getx()-x;
+			y2= y - Forme::getAnchor().gety();
+			anchor2.setxy(x, y);
 		}
 		if (anchor3Focused)
 		{
